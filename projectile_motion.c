@@ -5,21 +5,6 @@ void find_range(float launchSpeed, float launchAngle, float initialHeight) {
     const float G = 9.81;
     const float PI = 4.0 * atan(1.0);
 
-    if(launchAngle < 0 || launchAngle > 180) {
-        printf("Invalid launch angle.\n");
-        return;
-    }
-
-    if(initialHeight < 0) {
-        printf("Invalid initial height.\n");
-        return;
-    }
-
-    if(launchSpeed < 0) {
-        printf("Invalid launch speed.\n");
-        return;
-    }
-
     float launchAngle_radians = PI * launchAngle / 180.0;
 
     float launchSpeed_x = launchSpeed * cos(launchAngle_radians);
@@ -35,14 +20,27 @@ void find_range(float launchSpeed, float launchAngle, float initialHeight) {
 int main() {
     float launchSpeed, launchAngle, initialHeight;
 
-    printf("Enter the launch speed (m/s): ");
-    scanf("%f", &launchSpeed);
-
     printf("Enter the launch angle (degrees): ");
     scanf("%f", &launchAngle);
+    if(launchAngle < 0 || launchAngle > 180) {
+        printf("Invalid launch angle.\n");
+        return 1;
+    }
 
     printf("Enter the initial height (m): ");
     scanf("%f", &initialHeight);
+    if(initialHeight < 0) {
+        printf("Invalid initial height.\n");
+        return 1;
+    }
+
+    printf("Enter the launch speed (m/s): ");
+    scanf("%f", &launchSpeed);
+    if(launchSpeed < 0) {
+        printf("Invalid launch speed.\n");
+        return 1;
+    }
+
 
     printf("\n");
 
