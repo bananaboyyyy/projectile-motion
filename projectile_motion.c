@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-void find_range(float launchSpeed, float launchAngle, float initialHeight) {
+void findRange(float launchSpeed, float launchAngle, float initialHeight) {
     const float G = 9.81;
     const float PI = 4.0 * atan(1.0);
 
@@ -10,9 +10,9 @@ void find_range(float launchSpeed, float launchAngle, float initialHeight) {
     float launchSpeed_x = launchSpeed * cos(launchAngle_radians);
     float launchSpeed_y = launchSpeed * sin(launchAngle_radians);
 
-    float air_time = ( launchSpeed_y + sqrt( pow(launchSpeed_y, 2) + 2 * G * initialHeight ) ) / G;
+    float airTime = ( launchSpeed_y + sqrt( pow(launchSpeed_y, 2) + 2 * G * initialHeight ) ) / G;
 
-    float range = air_time * launchSpeed_x;
+    float range = airTime * launchSpeed_x;
 
     printf("Horizontal projectile range is %.2f metres.\n", range);
 }
@@ -44,7 +44,7 @@ int main() {
 
     printf("\n");
 
-    find_range(launchSpeed, launchAngle, initialHeight);
+    findRange(launchSpeed, launchAngle, initialHeight);
 
 
     return 0;
